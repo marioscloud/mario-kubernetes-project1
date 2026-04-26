@@ -53,7 +53,7 @@ Grafana dashboards were implemented to track:
 ### Steps:
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/marioscloud/mario-kubernetes-project1.git](https://github.com/marioscloud/mario-kubernetes-project1.git)
+    git clone https://github.com/marioscloud/mario-kubernetes-project1.git
     cd mario-kubernetes-project1
     ```
 2.  **Create the cluster:**
