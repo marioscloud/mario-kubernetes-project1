@@ -6,64 +6,67 @@
 ![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=for-the-badge&logo=prometheus&logoColor=white)
 ![Grafana](https://img.shields.io/badge/Grafana-F46800?style=for-the-badge&logo=grafana&logoColor=white)
 
-Este proyecto demuestra la implementación de un ciclo de vida completo de software (**SDLC**) utilizando prácticas modernas de **DevSecOps**. Desplegamos el clásico juego de Super Mario sobre un clúster de Kubernetes, automatizando la seguridad, el monitoreo y el despliegue continuo.
+This project demonstrates the implementation of a full Software Development Life Cycle (**SDLC**) using modern **DevSecOps** practices. We deployed the classic Super Mario game on a Kubernetes cluster, automating security, monitoring, and continuous deployment.
 
-## 🏗️ Arquitectura del Sistema
+## 🏗️ System Architecture
 
-El proyecto se basa en cuatro pilares fundamentales:
+The project is built on four core pillars:
 
-1.  **Orquestación:** Despliegue en **Kubernetes (K3d)** utilizando Deployments, Services y gestión de volúmenes persistentes (**PVC**).
-2.  **Pipeline CI/CD:** Automatización total mediante **GitHub Actions** para el build y push de imágenes a Docker Hub.
-3.  **Seguridad (SecOps):** * Análisis estático de imágenes con **Trivy** (Vulnerability Scanning).
-    * Políticas de red (**Network Policies**) para aislar el tráfico.
-    * Control de acceso basado en roles (**RBAC**).
-4.  **Observabilidad:** Stack de monitoreo con **Prometheus** para la recolección de métricas y **Grafana** para la visualización de recursos en tiempo real.
+1.  **Orchestration:** Deployed on **Kubernetes (K3d)** using Deployments, Services, and Persistent Volume Claims (**PVC**) for state management.
+2.  **CI/CD Pipeline:** Fully automated via **GitHub Actions** for building and pushing images to Docker Hub.
+3.  **Security (SecOps):** * Static Image Analysis with **Trivy** (Vulnerability Scanning).
+    * **Network Policies** to ensure traffic isolation.
+    * Role-Based Access Control (**RBAC**) implementation.
+4.  **Observability:** Monitoring stack using **Prometheus** for metrics collection and **Grafana** for real-time resource visualization.
 
-## 🛠️ Tecnologías Utilizadas
+## 🛠️ Tech Stack
 
-* **Infraestructura:** K3d (Lightweight Kubernetes).
-* **Contenedores:** Docker & Docker Hub.
+* **Infrastructure:** K3d (Lightweight Kubernetes).
+* **Containerization:** Docker & Docker Hub.
 * **CI/CD:** GitHub Actions.
-* **Seguridad:** Aquasecurity Trivy.
-* **Monitoreo:** Prometheus Stack (Helm Chart).
+* **Security:** Aquasecurity Trivy.
+* **Monitoring:** Prometheus Stack (Helm Charts).
 
-## 🚀 Pipeline de CI/CD
+## 🚀 CI/CD Pipeline
 
-El flujo de trabajo se dispara automáticamente con cada `push` a la rama `main`:
-1.  **Checkout:** Descarga del código fuente.
-2.  **Docker Login:** Autenticación segura mediante GitHub Secrets.
-3.  **Build & Push:** Construcción de la imagen optimizada y envío a Docker Hub.
-4.  **Security Scan:** Escaneo de vulnerabilidades críticas y altas. Si el riesgo es inaceptable, el pipeline falla protegiendo el entorno.
+The workflow triggers automatically on every `push` to the `main` branch:
+1.  **Checkout:** Pulls the latest source code.
+2.  **Docker Login:** Secure authentication using GitHub Secrets.
+3.  **Build & Push:** Builds an optimized Docker image and pushes it to Docker Hub.
+4.  **Security Scan:** Scans for "Critical" and "High" vulnerabilities. If the risk exceeds the threshold, the pipeline fails to protect the production environment.
 
-## 📈 Monitoreo y Resultados
+## 📈 Monitoring & Insights
 
-Se implementaron dashboards en Grafana para supervisar:
-* Consumo de CPU y Memoria por Pod.
-* Estado de salud de los nodos del clúster.
-* Métricas de red del despliegue de Mario.
+Grafana dashboards were implemented to track:
+* CPU and Memory consumption per Pod.
+* Cluster Node health status.
+* Network metrics for the Mario deployment.
 
 ---
 
-## 🔧 Instalación y Despliegue Local
+## 🔧 Installation & Deployment
 
-### Pre-requisitos:
-* Docker instalado.
-* K3d & Kubectl.
+### Prerequisites:
+* Docker installed.
+* K3d & Kubectl installed.
 
-### Pasos:
-1.  **Clonar el repositorio:**
+### Steps:
+1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/marioscloud/mario-kubernetes-project1.git
+    git clone [https://github.com/marioscloud/mario-kubernetes-project1.git](https://github.com/marioscloud/mario-kubernetes-project1.git)
     cd mario-kubernetes-project1
     ```
-2.  **Crear el clúster:**
+2.  **Create the cluster:**
     ```bash
     k3d cluster create mario-cluster -p "8080:80@loadbalancer"
     ```
-3.  **Aplicar manifiestos:**
+3.  **Apply manifests:**
     ```bash
     kubectl apply -f .
     ```
 
 ---
-**Developed by Mario Araos *Devops Engineer | Pasion for infrastructure and automation | LFCS | CKA *
+**Developed by [Your Name / MariosCloud]** *DevSecOps Engineer in training | Passionate about Infrastructure as Code (IaC) and Automation.*
+
+---
+**Developed by Mario Araos ** *Devops Engineer| Pasion for infrastructure and automation |LFCS | CKA*
