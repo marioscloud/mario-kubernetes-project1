@@ -1,0 +1,13 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: mario-binding
+subjects:
+- kind: ServiceAccount
+  name: mario-sa
+  namespace: default # Asegúrate de que coincida con el namespace de tu app
+roleRef:
+  kind: Role
+  name: pod-reader
+  apiGroup: rbac.authorization.k8s.io
+

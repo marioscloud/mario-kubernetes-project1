@@ -1,0 +1,59 @@
+---
+# 1. Storage for logs/data
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mario-pvc
+spec:
+  accessModes: [ReadWriteOnce]
+  resources:
+    requests:
+      storage: 1Gi
+---
+# 2. Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mario-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mario
+  template:
+    metadata:
+      labels:
+        app: mario
+    spec:
+      serviceAccountName: mario-sa
+      containers:
+      - name: mario-container
+        image: marioscloud/mario-app:v1
+        ports:
+        - containerPort: 80
+        resources: # Gestión de capacidad
+          requests:
+            memory: "64Mi"
+            cpu: "100m"
+          limits:
+            memory: "128Mi"
+            cpu: "200m"
+        volumeMounts:
+        - name: storage
+          mountPath: /var/log/nginx
+      volumes:
+      - name: storage
+        persistentVolumeClaim:
+          claimName: mario-pvc
+---
+# 3. Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: mario-service
+spec:
+  selector:
+    app: mario
+  ports:
+  - port: 80
+    targetPort: 80
