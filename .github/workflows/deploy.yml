@@ -22,7 +22,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME/mario-app:v1
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/mario-app:v1
 
       - name: Security Scan (Trivy)
         uses: aquasecurity/trivy-action@master
