@@ -66,7 +66,4 @@ Grafana dashboards were implemented to track:
     ```
 
 ---
-**Developed by [Your Name / MariosCloud]** *DevSecOps Engineer in training | Passionate about Infrastructure as Code (IaC) and Automation.*
-
----
-**Developed by Mario Araos ** *Devops Engineer| Pasion for infrastructure and automation |LFCS | CKA*
+**Developed by Mario Araos** *Devops Engineer| Pasion for infrastructure and automation |LFCS | CKA*
