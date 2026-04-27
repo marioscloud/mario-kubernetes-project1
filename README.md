@@ -6,7 +6,7 @@
 ![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=for-the-badge&logo=prometheus&logoColor=white)
 ![Grafana](https://img.shields.io/badge/Grafana-F46800?style=for-the-badge&logo=grafana&logoColor=white)
 
-This project demonstrates the implementation of a full Software Development Life Cycle (**SDLC**) using modern **DevSecOps** practices. We deployed the classic Super Mario game on a Kubernetes cluster, automating security, monitoring, and continuous deployment.
+This project demonstrates the deployment of a microservices architecture (Mario App) on a **Kubernetes** cluster, adhering to production-grade standards. The primary focus is not only on availability but also on implementing a **Zero-Trust Security** model and a comprehensive **Observability** stack.
 
 ## 🏗️ System Architecture
 
